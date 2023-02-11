@@ -18,10 +18,6 @@ function generatePassword() {
 
 
 
-
-
-
-
   var userChoice = window.prompt("Include numbers");
   
   var userChoice2 = window.prompt("Include UpperCase Letters");
@@ -35,10 +31,10 @@ function generatePassword() {
 
 
   var passwordLength = function () {
-    var charLength = parseInt(prompt("Choose a number between (8-128)"));
+    var charLength = parseInt(prompt("How many characters you want? Password length must be between 8 to 128"));
 
     if (!(charLength > 8 || charLength < 128 || charLength === "")) {
-      alert("Please choose a number from(0-128)");
+      alert("Please choose a length from(0-128)");
       return passwordLength();
     }
   }
