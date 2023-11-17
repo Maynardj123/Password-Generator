@@ -1,6 +1,7 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
+// passwordString shows all the available combinations to use for the password
 var passwordString="";
   // var chars = upper || lower || num || special;
 var upper = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
@@ -18,18 +19,21 @@ function writePassword() {
 
 function generatePassword() {
   var charLength = parseInt(prompt("How many characters you want? Password length must be between 8 to 128"));
- 
+
+  // checks to see if the length is correct
   if (!(charLength > 8 || charLength < 128 || charLength === "")) {
     alert("Please choose a length from(0-128)");
     generatePassword();
   }else{
     alert('Length added')
+    // Asks to include combinations in prompt window
   var numberChoice = window.confirm("Include numbers");
   
   var upperChoice = window.confirm("Include UpperCase Letters");
 
   var lowerChoice = window.confirm("Include LowerCase Letters");
 
+  // specialChoice adds the selection the user wanted to use
   var specialChoice = window.confirm("Include special characters");
     
     if (numberChoice) {
@@ -48,7 +52,7 @@ function generatePassword() {
       chosenChars.push(...special)
       console.log(chosenChars)
     }
-
+    // creates a random combination with choices accepted
     for (var i = 0; i < charLength; i++) {
     var randomNumber = Math.floor(Math.random() * chosenChars.length);
     console.log(randomNumber)
@@ -58,7 +62,7 @@ function generatePassword() {
 
 
 
-
+// returns the passwordString so it doesnt create an infinite loop
   return passwordString;
 }
 
